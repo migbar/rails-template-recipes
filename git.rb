@@ -2,9 +2,6 @@ say_recipe 'git'
 
 remove_file '.gitignore'
 file '.gitignore', <<-'IGNORES'.gsub(/^ {2}/, '')
-  # bundler state
-  /.bundle
-  /vendor/bundle/
  
   # rails specific artifacts
   /log/
@@ -15,8 +12,6 @@ file '.gitignore', <<-'IGNORES'.gsub(/^ {2}/, '')
   /config/config.yml
   /db/*.sqlite3
   /db/*.sqlite3-journal
-  /db/*.javadb/
-  /derby.log
   **.war
   /coverage/
   /coverage.data
@@ -24,20 +19,12 @@ file '.gitignore', <<-'IGNORES'.gsub(/^ {2}/, '')
   rerun.txt
   capybara-*.html
 
-  # scm revert files
-  **.orig
-
   # mac finder poop
   .DS_Store
-
-  # netbeans project directory
-  /nbproject/
 
   # textmate project files
   /*.tmpproj
 
-  # vim poop
-  **.swp
 IGNORES
 
 git :init
